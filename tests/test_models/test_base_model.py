@@ -50,7 +50,7 @@ class BaseModelTests(unittest.TestCase):
         dict2 = self.my_model.to_dict()
 
         self.assertEqual(dict1['created_at'], dict2['created_at'])
-        self.assertNotEqual(dict2['updated_at'], dict2['updated_at'])
+        self.assertNotEqual(dict1['updated_at'], dict2['updated_at'])
 
 
 if __name__ == '__main__':

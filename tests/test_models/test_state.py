@@ -2,7 +2,7 @@
 """
 Unitest for amenity
 """
-import unitest
+import unittest
 import datetime
 from models.state import State
 

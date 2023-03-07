@@ -2,7 +2,7 @@
 """
 Unitest for amenity
 """
-import unitest
+import unittest
 import datetime
 from models.amenity import Amenity
 
@@ -39,10 +39,10 @@ class TestAmenity(unittest.TestCase):
         """
         Verify if attributes types
         """
-        self.assertIsInstance(hasattr(self.a.name, str))
-        self.assertIsInstance(hasattr(self.a.id, str))
-        self.assertIsInstance(hasattr(self.a.created_at, datetime.datetime))
-        self.assertIsInstance(hasattr(self.a.updated_at, datetime.datetime))
+        self.assertIsInstance(self.a.name, str)
+        self.assertIsInstance(self.a.id, str)
+        self.assertIsInstance(self.a.created_at, datetime.datetime)
+        self.assertIsInstance(self.a.updated_at, datetime.datetime)
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 """
 Unitest for amenity
 """
-import unitest
+import unittest
 import datetime
 from models.place import Place
 

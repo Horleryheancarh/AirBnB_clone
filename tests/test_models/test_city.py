@@ -2,7 +2,7 @@
 """
 Unitest for amenity
 """
-import unitest
+import unittest
 import datetime
 from models.city import City
 
@@ -11,7 +11,7 @@ class TestCity(unittest.TestCase):
     """
     Tests instance and methods from city model
     """
-    a = Amenity()
+    a = City()
 
     def test_class_exists(self):
         """
@@ -40,11 +40,11 @@ class TestCity(unittest.TestCase):
         """
         Verify if attributes types
         """
-        self.assertIsInstance(hasattr(self.a.name, str))
-        self.assertIsInstance(hasattr(self.a.id, str))
-        self.assertIsInstance(hasattr(self.a.created_at, datetime.datetime))
-        self.assertIsInstance(hasattr(self.a.updated_at, datetime.datetime))
-        self.assertIsInstance(hasattr(self.a.state_id, str))
+        self.assertIsInstance(self.a.name, str)
+        self.assertIsInstance(self.a.id, str)
+        self.assertIsInstance(self.a.created_at, datetime.datetime)
+        self.assertIsInstance(self.a.updated_at, datetime.datetime)
+        self.assertIsInstance(self.a.state_id, str)
 
 
 if __name__ == '__main__':

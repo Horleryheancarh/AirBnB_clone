@@ -10,7 +10,7 @@ from models.engine.file_storage import FileStorage
 from models import storage
 
 
-class FileStorageTesets(unittest.TestCase):
+class FileStorageTests(unittest.TestCase):
     """
     File Storage Tests
     """
@@ -47,7 +47,7 @@ class FileStorageTesets(unittest.TestCase):
         key = my_dict['__class__'] + '.' + my_dict['id']
 
         self.assertEqual(key in all_objs, True)
-        self.assertEqual(my_dict['my_name'], 'Jane Doe')
+        self.assertEqual(my_dict['full_name'], 'Jane Doe')
 
         create1 = my_dict['created_at']
         update1 = my_dict['updated_at']
@@ -60,18 +60,18 @@ class FileStorageTesets(unittest.TestCase):
         self.assertEqual(key in all_objs, True)
 
         create2 = my_dict['created_at']
-        update2 = my_dict['updates_at']
+        update2 = my_dict['updated_at']
 
         self.assertEqual(create1, create2)
         self.assertNotEqual(update1, update2)
-        self.assertEqual(my_dict['my_name'], 'John Dame')
+        self.assertEqual(my_dict['full_name'], 'John Dame')
 
     def testHasAttributes(self):
         """
         Verify Attributes
         """
-        self.assertEqual(hasattr(FileStorage, '__FileStorage__file_path'), True)
-        self.assertEqual(hasattr(FileStorage, '__FileStorage__file_path'), True)
+        self.assertEqual(hasattr(FileStorage, '_FileStorage__file_path'), True)
+        self.assertEqual(hasattr(FileStorage, '_FileStorage__objects'), True)
 
     def testSave(self):
         """
@@ -100,7 +100,7 @@ class FileStorageTesets(unittest.TestCase):
         """
         Check save self
         """
-        msg = "save() takes i positional argument but 2 were given"
+        msg = "save() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as e:
             FileStorage.save(self, 100)
 
@@ -118,8 +118,9 @@ class FileStorageTesets(unittest.TestCase):
             in2 = json.load(f)
 
         new = in2[new_key]
-        for key in key2:
+        for key in new:
             self.assertEqual(in1[key], new[key])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -34,10 +34,10 @@ class FileStorage:
         dic = {}
 
         for key, value in FileStorage.__objects.items():
-            dictionary[key] = value.to_dict()
+            dic[key] = value.to_dict()
 
         with open(FileStorage.__file_path, 'w') as f:
-            json.dump(dictionary, f)
+            json.dump(dic, f)
 
     def reload(self):
         """

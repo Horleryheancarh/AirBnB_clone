@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, cls_name):
         """
-        COunt number of instances of a class
+        Count number of instances of a class
         """
         count = 0
         all_objs = storage_all()
