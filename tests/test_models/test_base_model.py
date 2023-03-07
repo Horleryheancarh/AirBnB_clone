@@ -52,5 +52,6 @@ class BaseModelTests(unittest.TestCase):
         self.assertEqual(dict1['created_at'], dict2['created_at'])
         self.assertNotEqual(dict2['updated_at'], dict2['updated_at'])
 
+
 if __name__ == '__main__':
     unittest.main()
