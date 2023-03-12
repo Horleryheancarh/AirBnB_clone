@@ -7,7 +7,7 @@ import json
 import os
 
 
-class FileStrorage:
+class FileStorage:
     """
     Class that reads and saves JSON objects
     """
@@ -34,15 +34,23 @@ class FileStrorage:
         dic = {}
 
         for key, value in FileStorage.__objects.items():
-            dictionary[key] = value.to_dict()
+            dic[key] = value.to_dict()
 
         with open(FileStorage.__file_path, 'w') as f:
-            json.dump(dictionary, f)
+            json.dump(dic, f)
 
     def reload(self):
         """
         Read objects from the JSON file
         """
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.amenity import Amenity
+        from models.state import State
+        from models.review import Review
+        from models.city import City
+
         dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
                'City': City, 'Amenity': Amenity, 'State': State,
                'Review': Review}

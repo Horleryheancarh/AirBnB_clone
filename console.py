@@ -3,9 +3,16 @@
 Entry to command line
 """
 import cmd
-from models import storage
 import json
 import shlex
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.amenity import Amenity
+from models.state import State
+from models.review import Review
+from models.city import City
 
 
 class HBNBCommand(cmd.Cmd):
@@ -45,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, cls_name):
         """
-        COunt number of instances of a class
+        Count number of instances of a class
         """
         count = 0
         all_objs = storage_all()
