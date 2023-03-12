@@ -87,7 +87,7 @@ class FileStorageTests(unittest.TestCase):
         """
         self.my_model.save()
         self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
-        
+
         obj = storage.all()
         FileStorage._FileStorage__objects = {}
         self.assertNotEqual(obj, FileStorage._FileStorage__objects)
