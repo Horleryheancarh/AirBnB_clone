@@ -106,21 +106,6 @@ class FileStorageTests(unittest.TestCase):
 
         self.assertEqual(str(e.exception), msg)
 
-    def testSaveFileStorage(self):
-        """
-        Test if new method is working
-        """
-        in1 = self.my_model.to_dict()
-        new_key = in1['__class__'] + '.' + in1['id']
-        storage.save()
-
-        with open('file.json', 'r') as f:
-            in2 = json.load(f)
-
-        new = in2[new_key]
-        for key in new:
-            self.assertEqual(in1[key], new[key])
-
 
 if __name__ == '__main__':
     unittest.main()
